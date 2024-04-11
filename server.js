@@ -32,7 +32,7 @@ const winston = require('winston');
 /**
  * Defines the port on which the server will listen.
  */
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 /**
  * Specifies paths for log files.
