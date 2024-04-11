@@ -103,12 +103,13 @@ app.use(bodyParser.json());
  * 
  */
 const connection = mysql.createConnection({
-  host: '35.192.117.103',
-  user: 'naman',
-  password: 'authflow',
-  database: 'accounts',
-  port: 3306
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT || 3306 // Default to 3306 if DB_PORT is not specified
 });
+
   connection.connect(err => {
     if (err) {
       console.error('Error connecting: ' + err.stack);
