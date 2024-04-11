@@ -139,7 +139,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://clientsideauthflow-9f07664925c1.herokuapp.com',
   clientID: '238YoLjdvjDA7nNO3HJ6gTwlan8N7Fcv',
   issuerBaseURL: 'https://authflowauthenticator.us.auth0.com'
 };
