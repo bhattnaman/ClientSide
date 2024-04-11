@@ -212,14 +212,14 @@ app.get('/is-authenticated', (req, res) => {
     res.json({ isAuthenticated: true , email: email});
 
     // Set all users as logged out
-    const setAllUsersLoggedOutQuery = 'UPDATE authflowusers SET is_logged_in = FALSE';
+    const setAllUsersLoggedOutQuery = 'UPDATE authflowusers SET is_logged_in = 0';
     connection.query(setAllUsersLoggedOutQuery, (logoutErr, logoutResults) => {
       if (logoutErr) {
         logger.error('Database error when setting all users to logged out:', logoutErr);
       }
   
       // Set the current user as logged in
-      const setUserLoggedInQuery = 'UPDATE authflowusers SET is_logged_in = TRUE WHERE email = ?';
+      const setUserLoggedInQuery = 'UPDATE authflowusers SET is_logged_in = 1 WHERE email = ?';
       connection.query(setUserLoggedInQuery, [email], (loginErr, loginResults) => {
         if (loginErr) {
           logger.error('Database error when setting user to logged in:', loginErr);
